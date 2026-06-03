@@ -22,8 +22,8 @@ function BarChart() {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <ResponsiveContainer width="100%" height="100%">
+    <div style={{ width: "100%", height: "400px" }}>
+      <ResponsiveContainer width="100%" height={350}>
         <ComposedChart data={mockBarData}>
           <CartesianGrid stroke={colors.grey[700]} />
 
