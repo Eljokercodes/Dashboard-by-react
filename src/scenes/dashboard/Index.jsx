@@ -18,13 +18,27 @@ function Dashboard() {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box sx={{ m: "20px" }}>
+    <Box
+      sx={{
+        m: "20px",
+        overflowX: "hidden",
+      }}
+    >
       {/* HEADER */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: {
+            xs: "flex-start",
+            sm: "center",
+          },
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          gap: 2,
+          mb: 2,
         }}
       >
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
@@ -36,6 +50,10 @@ function Dashboard() {
             fontSize: "14px",
             fontWeight: "bold",
             padding: "10px 20px",
+            width: {
+              xs: "100%",
+              sm: "auto",
+            },
           }}
         >
           <DownloadOutLinedIcon sx={{ mr: "10px" }} />
@@ -52,10 +70,14 @@ function Dashboard() {
           gap: "20px",
         }}
       >
-        {/* CARDS */}
+        {/* CARD 1 */}
         <Box
           sx={{
-            gridColumn: "span 3",
+            gridColumn: {
+              xs: "span 12",
+              sm: "span 6",
+              md: "span 3",
+            },
             backgroundColor: colors.primary[400],
             display: "flex",
             justifyContent: "center",
@@ -69,15 +91,23 @@ function Dashboard() {
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{
+                  color: colors.greenAccent[600],
+                  fontSize: "26px",
+                }}
               />
             }
           />
         </Box>
 
+        {/* CARD 2 */}
         <Box
           sx={{
-            gridColumn: "span 3",
+            gridColumn: {
+              xs: "span 12",
+              sm: "span 6",
+              md: "span 3",
+            },
             backgroundColor: colors.primary[400],
             display: "flex",
             justifyContent: "center",
@@ -91,15 +121,23 @@ function Dashboard() {
             increase="+21%"
             icon={
               <ShoppingCartIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{
+                  color: colors.greenAccent[600],
+                  fontSize: "26px",
+                }}
               />
             }
           />
         </Box>
 
+        {/* CARD 3 */}
         <Box
           sx={{
-            gridColumn: "span 3",
+            gridColumn: {
+              xs: "span 12",
+              sm: "span 6",
+              md: "span 3",
+            },
             backgroundColor: colors.primary[400],
             display: "flex",
             justifyContent: "center",
@@ -113,15 +151,23 @@ function Dashboard() {
             increase="+5%"
             icon={
               <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{
+                  color: colors.greenAccent[600],
+                  fontSize: "26px",
+                }}
               />
             }
           />
         </Box>
 
+        {/* CARD 4 */}
         <Box
           sx={{
-            gridColumn: "span 3",
+            gridColumn: {
+              xs: "span 12",
+              sm: "span 6",
+              md: "span 3",
+            },
             backgroundColor: colors.primary[400],
             display: "flex",
             justifyContent: "center",
@@ -135,7 +181,10 @@ function Dashboard() {
             increase="+43%"
             icon={
               <TrafficIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{
+                  color: colors.greenAccent[600],
+                  fontSize: "26px",
+                }}
               />
             }
           />
@@ -144,7 +193,10 @@ function Dashboard() {
         {/* LINE CHART */}
         <Box
           sx={{
-            gridColumn: "span 8",
+            gridColumn: {
+              xs: "span 12",
+              lg: "span 8",
+            },
             gridRow: "span 2",
             backgroundColor: colors.primary[400],
             display: "flex",
@@ -159,7 +211,8 @@ function Dashboard() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              flexShrink: 0,
+              flexWrap: "wrap",
+              gap: 2,
             }}
           >
             <Box>
@@ -170,9 +223,13 @@ function Dashboard() {
               >
                 Revenue Generated
               </Typography>
+
               <Typography
                 variant="h3"
-                sx={{ fontWeight: "bold", color: colors.greenAccent[500] }}
+                sx={{
+                  fontWeight: "bold",
+                  color: colors.greenAccent[500],
+                }}
               >
                 $59,342,32
               </Typography>
@@ -180,20 +237,33 @@ function Dashboard() {
 
             <IconButton>
               <DownloadOutLinedIcon
-                sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
+                sx={{
+                  fontSize: "26px",
+                  color: colors.greenAccent[500],
+                }}
               />
             </IconButton>
           </Box>
 
-          <Box sx={{ flex: 1, minHeight: 0, width: "100%", mt: "5px" }}>
+          <Box
+            sx={{
+              flex: 1,
+              minHeight: 0,
+              width: "100%",
+              mt: "5px",
+            }}
+          >
             <LineChart isDashboard={true} />
           </Box>
         </Box>
 
-        {/* TRANSACTIONS (OUTSIDE LINE CHART) */}
+        {/* TRANSACTIONS */}
         <Box
           sx={{
-            gridColumn: "span 4",
+            gridColumn: {
+              xs: "span 12",
+              lg: "span 4",
+            },
             gridRow: "span 2",
             backgroundColor: colors.primary[400],
             overflow: "auto",
@@ -206,7 +276,7 @@ function Dashboard() {
               alignItems: "center",
               borderBottom: `4px solid ${colors.primary[500]}`,
               color: colors.grey[100],
-              padding: "15px",
+              p: "15px",
             }}
           >
             <Typography variant="h5" fontWeight="600">
@@ -222,13 +292,17 @@ function Dashboard() {
                 justifyContent: "space-between",
                 alignItems: "center",
                 borderBottom: `4px solid ${colors.primary[500]}`,
-                padding: "15px",
+                p: "15px",
               }}
             >
               <Box>
-                <Typography color={colors.greenAccent[500]} fontWeight="600">
+                <Typography
+                  color={colors.greenAccent[500]}
+                  fontWeight="600"
+                >
                   {transaction.txId}
                 </Typography>
+
                 <Typography color={colors.grey[100]}>
                   {transaction.user}
                 </Typography>
@@ -241,7 +315,7 @@ function Dashboard() {
               <Box
                 sx={{
                   backgroundColor: colors.greenAccent[500],
-                  padding: "5px 10px",
+                  p: "5px 10px",
                   borderRadius: "4px",
                 }}
               >
@@ -250,78 +324,116 @@ function Dashboard() {
             </Box>
           ))}
         </Box>
-        {/* Row 3 */}
+
+        {/* CAMPAIGN */}
         <Box
           sx={{
-            gridColumn: "span 4",
+            gridColumn: {
+              xs: "span 12",
+              md: "span 6",
+              lg: "span 4",
+            },
             gridRow: "span 2",
             backgroundColor: colors.primary[400],
-            padding: "4px",
+            p: 3,
           }}
         >
           <Typography variant="h5" sx={{ fontWeight: "600" }}>
             Campaign
           </Typography>
+
           <Box
             sx={{
               display: "flex",
-              flexDirection: "cloumn",
+              flexDirection: "column",
               alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
               mt: "25px",
             }}
           >
             <ProgressCircle size="125" />
+
             <Typography
               variant="h5"
-              sx={{ color: colors.greenAccent[500], mt: "15px" }}
+              sx={{
+                color: colors.greenAccent[500],
+                mt: "15px",
+              }}
             >
               $48,352 revenue generated
             </Typography>
-            <Typography >Includes extra misc expenditures and costs</Typography>
+
+            <Typography>
+              Includes extra misc expenditures and costs
+            </Typography>
           </Box>
         </Box>
-        {/*  */}
+
+        {/* BAR CHART */}
         <Box
           sx={{
-            gridColumn: "span 4",
+            gridColumn: {
+              xs: "span 12",
+              md: "span 6",
+              lg: "span 4",
+            },
             gridRow: "span 2",
             backgroundColor: colors.primary[400],
           }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "600",padding:'30px 30px 0 30px' }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "600",
+              p: "30px 30px 0 30px",
+            }}
+          >
             Sales Quantity
           </Typography>
+
           <Box
             sx={{
-              height:'250px',
+              height: "250px",
               mt: "-20px",
             }}
           >
-            <BarChart isDashboard={true}/>
+            <BarChart isDashboard={true} />
           </Box>
         </Box>
-        {/*  */}
+
+        {/* LINE CHART 2 */}
         <Box
           sx={{
-            gridColumn: "span 4",
+            gridColumn: {
+              xs: "span 12",
+              md: "span 12",
+              lg: "span 4",
+            },
             gridRow: "span 2",
             backgroundColor: colors.primary[400],
-            padding:'30px'
+            p: "30px",
           }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "600",mb:'15px' }}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: "600",
+              mb: "15px",
+            }}
+          >
             Sales Quantity
           </Typography>
+
           <Box
             sx={{
-              height:'250px',
+              height: "250px",
               mt: "-20px",
             }}
           >
-            <LineCharts isDashboard={true}/>
+            <LineCharts isDashboard={true} />
           </Box>
         </Box>
-        {/*  */}
       </Box>
     </Box>
   );

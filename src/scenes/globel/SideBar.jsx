@@ -87,19 +87,19 @@ function SideBar() {
               justifyContent: "center",
               alignItems: "center",
             }}
-          >
-            <Box>
-              <img
-                alt="profile-user"
-                width="100px"
-                height="100px"
-                src="/assets/user.png"
-                style={{
-                  cursor: "pointer",
-                  borderRadius: "50%",
-                }}
-              />
-            </Box>
+            >
+              <Box
+    component="img"
+    src="src/../public/assets/891783163894871043.jpg"
+    alt="profile-user"
+      sx={{
+    width: 110,
+    height: 110,
+    borderRadius: "50%",
+    objectFit: "cover",
+    boxShadow: 3,
+  }}
+  />
 
             <Box sx={{ textAlign: "center", mt: 2 }}>
               <Typography
